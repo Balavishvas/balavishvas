@@ -74,12 +74,9 @@ A research-oriented project exploring AI agents for automated research and infor
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=Balavishvas&show_icons=true&hide_border=true&bg_color=00000000&title_color=ff4fd8&icon_color=22d3ee&text_color=cbd5e1" height="165" alt="GitHub statistics"/>
-
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Balavishvas&layout=compact&hide_border=true&bg_color=00000000&title_color=ff4fd8&text_color=cbd5e1" height="165" alt="Top languages"/>
+<img src="./dist/github-contribution-grid-snake-dark.svg" width="100%" alt="GitHub contribution snake"/>
 
 </div>
-
 ---
 
 ## 🌙 `CURRENTLY`
