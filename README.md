@@ -77,6 +77,7 @@ A research-oriented project exploring AI agents for automated research and infor
 <img src="./dist/github-contribution-grid-snake-dark.svg" width="100%" alt="GitHub contribution snake"/>
 
 </div>
+
 ---
 
 ## 🌙 `CURRENTLY`
