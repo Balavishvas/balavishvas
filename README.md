@@ -83,8 +83,6 @@ A research-oriented project exploring AI agents for automated research and infor
 
 </div>
 
-</div>
-
 ---
 
 ## 🌙 `CURRENTLY`
