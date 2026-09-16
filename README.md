@@ -60,6 +60,11 @@ Real-time AI voice assistant focused on natural interaction.
 
 **Focus:** `Voice AI` · `Agents` · `Backend`
 
+### 🔎 Mission 04 — GitHub Profile Inspector
+Small Python CLI that reads a public GitHub profile and displays useful profile statistics through the GitHub REST API.
+
+**Focus:** `Python` · `REST API` · `CLI`
+
 ---
 
 ## 📚 04 — `RESEARCH LOG`
@@ -75,6 +80,8 @@ A research-oriented project exploring AI agents for automated research and infor
 <div align="center">
 
 <img src="./dist/github-contribution-modern.svg" width="100%" alt="Clean developer GitHub activity banner"/>
+
+</div>
 
 </div>
 
