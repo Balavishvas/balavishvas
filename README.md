@@ -74,7 +74,7 @@ A research-oriented project exploring AI agents for automated research and infor
 
 <div align="center">
 
-<img src="./dist/github-contribution-pixel-character.svg" width="100%" alt="Retro pixel character GitHub contribution animation"/>
+<img src="./dist/github-contribution-modern.svg" width="100%" alt="Clean developer GitHub activity banner"/>
 
 </div>
 
