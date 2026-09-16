@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="1200" height="360" role="img" aria-labelledby="title desc">
+<title id="title">Retro pixel character GitHub journey</title>
+<desc id="desc">A dark retro pixel-art coding scene with a contribution heatmap and an animated original pixel character.</desc>
+<style>
+text{font-family:monospace;fill:#b9c7ee}.grid{fill:#12352d}.g2{fill:#1c6848}.g3{fill:#39a866}.g4{fill:#79e889}.panel{fill:#070d1b;stroke:#26365f;stroke-width:3}.pixel{shape-rendering:crispEdges}.walk{animation:walk 9s steps(36,end) infinite alternate}.blink{animation:blink 1.8s steps(2,end) infinite}.screen{fill:#101a2b;stroke:#4a5d8e;stroke-width:3}@keyframes walk{from{transform:translateX(0)}to{transform:translateX(700px)}}@keyframes blink{0%,92%{opacity:1}96%,100%{opacity:.15}}
+</style>
+<rect width="1200" height="360" fill="#050817"/>
+<rect x="18" y="18" width="1164" height="324" rx="8" class="panel"/>
+<text x="45" y="52" font-size="22" font-weight="bold">Balavishvas@github</text><text x="45" y="77" font-size="14">&gt; Building ideas, one commit at a time...</text>
+<text x="900" y="52" font-size="14">Still a work in progress...</text>
+<rect x="900" y="63" width="190" height="12" fill="#101827" stroke="#8ba1d8"/><rect x="904" y="67" width="130" height="4" fill="#63db8a"/>
+<rect x="45" y="95" width="1110" height="104" rx="5" fill="#080f1d" stroke="#26365f"/>
+<g class="pixel">
+<text x="60" y="118" font-size="11">CONTRIBUTION GRID</text>
+<g transform="translate(180 112)">
+<g id="heat"><rect x="0" y="0" width="14" height="10" class="grid"/><rect x="18" y="0" width="14" height="10" class="g2"/><rect x="36" y="0" width="14" height="10" class="g3"/><rect x="54" y="0" width="14" height="10" class="g4"/><rect x="72" y="0" width="14" height="10" class="grid"/><rect x="90" y="0" width="14" height="10" class="g2"/><rect x="108" y="0" width="14" height="10" class="g3"/><rect x="126" y="0" width="14" height="10" class="grid"/><rect x="144" y="0" width="14" height="10" class="g4"/><rect x="162" y="0" width="14" height="10" class="g2"/><rect x="180" y="0" width="14" height="10" class="g3"/><rect x="198" y="0" width="14" height="10" class="grid"/><rect x="216" y="0" width="14" height="10" class="g2"/><rect x="234" y="0" width="14" height="10" class="g4"/><rect x="252" y="0" width="14" height="10" class="g3"/><rect x="270" y="0" width="14" height="10" class="grid"/><rect x="288" y="0" width="14" height="10" class="g2"/><rect x="306" y="0" width="14" height="10" class="g3"/><rect x="324" y="0" width="14" height="10" class="g4"/><rect x="342" y="0" width="14" height="10" class="grid"/><rect x="360" y="0" width="14" height="10" class="g2"/><rect x="378" y="0" width="14" height="10" class="g3"/><rect x="396" y="0" width="14" height="10" class="g4"/><rect x="414" y="0" width="14" height="10" class="grid"/><rect x="432" y="0" width="14" height="10" class="g2"/><rect x="450" y="0" width="14" height="10" class="g3"/><rect x="468" y="0" width="14" height="10" class="g4"/><rect x="486" y="0" width="14" height="10" class="grid"/><rect x="504" y="0" width="14" height="10" class="g2"/><rect x="522" y="0" width="14" height="10" class="g3"/><rect x="540" y="0" width="14" height="10" class="g4"/><rect x="558" y="0" width="14" height="10" class="grid"/><rect x="576" y="0" width="14" height="10" class="g2"/><rect x="594" y="0" width="14" height="10" class="g3"/><rect x="612" y="0" width="14" height="10" class="g4"/><rect x="630" y="0" width="14" height="10" class="grid"/><rect x="648" y="0" width="14" height="10" class="g2"/><rect x="666" y="0" width="14" height="10" class="g3"/><rect x="684" y="0" width="14" height="10" class="g4"/></g>
+<use href="#heat" y="15"/><use href="#heat" y="30"/><use href="#heat" y="45"/>
+</g></g>
+<rect x="45" y="218" width="1110" height="108" rx="5" fill="#080f1d" stroke="#26365f"/>
+<g transform="translate(70 230)">
+<rect x="350" y="15" width="300" height="72" rx="4" class="screen"/><rect x="365" y="27" width="130" height="5" fill="#4bc7e8"/><rect x="365" y="40" width="180" height="5" fill="#b56cff"/><rect x="365" y="53" width="150" height="5" fill="#63db8a"/><rect x="365" y="66" width="205" height="5" fill="#e6c85c"/>
+<g class="walk pixel"><!-- original retro character -->
+<rect x="40" y="45" width="8" height="8" fill="#f2b28b"/><rect x="48" y="37" width="32" height="24" fill="#f2b28b"/><rect x="56" y="29" width="16" height="8" fill="#f2b28b"/><rect x="48" y="37" width="32" height="8" fill="#27304b"/><rect x="72" y="45" width="8" height="8" class="blink" fill="#7cf2c0"/><rect x="48" y="61" width="32" height="22" fill="#202b4a"/><rect x="40" y="61" width="8" height="18" fill="#202b4a"/><rect x="80" y="61" width="8" height="18" fill="#202b4a"/><rect x="52" y="83" width="10" height="10" fill="#f2b28b"/><rect x="70" y="83" width="10" height="10" fill="#f2b28b"/>
+</g></g>
+<text x="690" y="245" font-size="13">&gt; Plan</text><text x="690" y="264" font-size="13">&gt; Code</text><text x="690" y="283" font-size="13">&gt; Build</text><text x="690" y="302" font-size="13">&gt; Improve_</text>
+<text x="980" y="248" font-size="12">⚡ CODE</text><text x="980" y="270" font-size="12">🎮 ANIME</text><text x="980" y="292" font-size="12">☕ COFFEE</text><text x="980" y="314" font-size="12">∞ REPEAT</text>
+<text x="60" y="184" font-size="11">Less</text><text x="1030" y="184" font-size="11">More</text><text x="820" y="184" font-size="11">Consistent Progress &gt; Perfection</text>
+</svg>
