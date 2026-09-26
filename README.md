@@ -62,7 +62,16 @@ Real-time AI voice assistant focused on natural interaction.
 
 ---
 
-## 📚 04 — `RESEARCH LOG`
+## 🔗 04 — `PROJECT LINKS`
+
+- [DeepResearchAgent](https://github.com/Balavishvas/DeepResearchAgent) — AI research and information synthesis
+- [Tourist Safety Monitoring & Incident Response](https://github.com/Balavishvas/Touriest-Safety-Monitoring-And-Incident-Response-System) — real-time tourist safety system
+- [Effy AI Voice Agent](https://github.com/Balavishvas/Effy-AI-Voice-Agent) — real-time AI voice assistant
+- [API Inspector](https://github.com/Balavishvas/api-inspector) — developer tool for inspecting APIs and HTTP behavior
+
+---
+
+## 📚 05 — `RESEARCH LOG`
 
 **Deep Research Agent — IEEE Conference Paper**
 
@@ -70,7 +79,7 @@ A research-oriented project exploring AI agents for automated research and infor
 
 ---
 
-## 📊 05 — `GITHUB JOURNEY`
+## 📊 06 — `GITHUB JOURNEY`
 
 <div align="center">
 
