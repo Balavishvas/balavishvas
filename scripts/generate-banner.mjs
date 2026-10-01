@@ -1,35 +1,119 @@
-import { writeFileSync } from "node:fs";
+import fs from "node:fs";
 
-const hour = Number(new Intl.DateTimeFormat("en-IN", {
-  hour: "2-digit", hour12: false, timeZone: "Asia/Kolkata"
-}).format(new Date()));
+const username = process.env.GITHUB_USERNAME || "Balavishvas";
+const token = process.env.GITHUB_TOKEN;
 
-let mode, title, subtitle, accent;
-if (hour >= 5 && hour < 11) {
-  mode = "LEARNING MODE"; title = "SYSTEM BOOT"; subtitle = "AI • DATA • EXPERIMENTS • DISCOVERY"; accent = "#38bdf8";
-} else if (hour >= 11 && hour < 17) {
-  mode = "BUILD MODE"; title = "SYSTEMS ACTIVE"; subtitle = "AI • AGENTS • RAG • BACKEND"; accent = "#22d3ee";
-} else if (hour >= 17 && hour < 23) {
-  mode = "EXPERIMENT MODE"; title = "DEEP BUILD"; subtitle = "RAG • AGENTS • SIMULATION • TOOLS"; accent = "#8b5cf6";
-} else {
-  mode = "DEEP WORK"; title = "NIGHT SHIFT"; subtitle = "IDEAS → SYSTEMS → WORKING SOFTWARE"; accent = "#a78bfa";
+async function getRepos() {
+  const response = await fetch(
+    `https://api.github.com/users/${username}/repos?per_page=100&sort=updated`,
+    {
+      headers: {
+        Accept: "application/vnd.github+json",
+        ...(token ? { Authorization: `Bearer ${token}` } : {})
+      }
+    }
+  );
+
+  if (!response.ok) throw new Error(`GitHub API failed: ${response.status}`);
+  return response.json();
 }
 
-const lines = [
-'<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360">',
-'<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#050816"/><stop offset="100%" stop-color="#111827"/></linearGradient><linearGradient id="g" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="' + accent + '"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient></defs>',
-'<rect width="1200" height="360" rx="24" fill="url(#bg)"/>',
-'<g opacity=".13" stroke="' + accent + '"><path d="M0 300H1200M0 240H1200M0 180H1200M0 120H1200"/><path d="M120 0V360M240 0V360M360 0V360M480 0V360M600 0V360M720 0V360M840 0V360M960 0V360M1080 0V360"/></g>',
-'<circle cx="965" cy="90" r="54" fill="none" stroke="' + accent + '" stroke-width="2" opacity=".65"/><circle cx="965" cy="90" r="21" fill="' + accent + '" opacity=".16"/>',
-'<path d="M870 278 C920 235 955 260 1000 205 S1080 160 1145 90" fill="none" stroke="url(#g)" stroke-width="3"/>',
-'<circle cx="1000" cy="205" r="6" fill="#8b5cf6"/><circle cx="1145" cy="90" r="6" fill="' + accent + '"/>',
-'<text x="70" y="88" fill="' + accent + '" font-family="monospace" font-size="17" letter-spacing="4">BALAVISHVAS // AI &amp; DATA SCIENCE</text>',
-'<text x="70" y="142" fill="white" font-family="Arial,sans-serif" font-size="44" font-weight="700">' + title + '</text>',
-'<text x="70" y="179" fill="#94a3b8" font-family="monospace" font-size="17">' + subtitle + '</text>',
-'<rect x="70" y="220" width="560" height="66" rx="10" fill="#0b1222" stroke="#243047"/>',
-'<text x="92" y="247" fill="#64748b" font-family="monospace" font-size="12">CURRENT MODE</text>',
-'<text x="92" y="273" fill="#e2e8f0" font-family="monospace" font-size="18">' + mode + '</text>',
-'<text x="70" y="325" fill="#475569" font-family="monospace" font-size="12">SYSTEM STATUS: ● ONLINE    TIMEZONE: IST    AUTO-UPDATED</text>',
-'</svg>'
-];
-writeFileSync("banner.svg", lines.join("\n"));
+const repos = await getRepos();
+const now = Date.now();
+const active = repos.filter(
+  repo => now - new Date(repo.pushed_at).getTime() < 30 * 24 * 60 * 60 * 1000
+);
+
+const featured = repos.filter(repo => !repo.fork).slice(0, 6);
+
+const ist = new Intl.DateTimeFormat("en-IN", {
+  timeZone: "Asia/Kolkata",
+  day: "2-digit",
+  month: "short",
+  year: "numeric",
+  hour: "2-digit",
+  minute: "2-digit",
+  hour12: false
+}).format(new Date());
+
+const esc = value => String(value)
+  .replaceAll("&", "&amp;")
+  .replaceAll("<", "&lt;")
+  .replaceAll(">", "&gt;")
+  .replaceAll('"', "&quot;");
+
+const projectNames = featured.map(repo => repo.name.replaceAll("-", " ").slice(0, 22));
+while (projectNames.length < 6) projectNames.push("—");
+
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="440" viewBox="0 0 1400 440">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#05070f"/><stop offset=".48" stop-color="#10162a"/><stop offset="1" stop-color="#080b16"/>
+  </linearGradient>
+  <linearGradient id="aurora" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#22d3ee" stop-opacity=".45"/><stop offset=".5" stop-color="#8b5cf6" stop-opacity=".28"/><stop offset="1" stop-color="#ec4899" stop-opacity=".18"/>
+  </linearGradient>
+  <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#67e8f9" stop-opacity="0"/><stop offset=".5" stop-color="#67e8f9" stop-opacity=".8"/><stop offset="1" stop-color="#a78bfa" stop-opacity="0"/>
+  </linearGradient>
+  <radialGradient id="orb">
+    <stop offset="0" stop-color="#67e8f9" stop-opacity=".9"/><stop offset=".35" stop-color="#22d3ee" stop-opacity=".35"/><stop offset="1" stop-color="#7c3aed" stop-opacity="0"/>
+  </radialGradient>
+  <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse"><path d="M42 0H0V42" fill="none" stroke="#94a3b8" stroke-opacity=".07"/></pattern>
+  <filter id="blur"><feGaussianBlur stdDeviation="28"/></filter>
+  <filter id="glow"><feGaussianBlur stdDeviation="5"/></filter>
+</defs>
+
+<rect x="8" y="8" width="1384" height="424" rx="32" fill="url(#bg)" stroke="#334155" stroke-opacity=".75"/>
+<rect x="8" y="8" width="1384" height="424" rx="32" fill="url(#grid)"/>
+<circle cx="1110" cy="90" r="180" fill="url(#aurora)" filter="url(#blur)"/>
+<circle cx="430" cy="410" r="170" fill="#7c3aed" fill-opacity=".12" filter="url(#blur)"/>
+
+<rect x="48" y="46" width="530" height="348" rx="26" fill="#ffffff" fill-opacity=".055" stroke="#ffffff" stroke-opacity=".13"/>
+<rect x="66" y="64" width="494" height="2" fill="url(#line)"/>
+<text x="78" y="104" fill="#67e8f9" font-family="monospace" font-size="15" letter-spacing="4">BALAVISHVAS // PROFILE CORE</text>
+<text x="78" y="164" fill="#f8fafc" font-family="Arial,sans-serif" font-size="50" font-weight="700">AI &amp; DATA SCIENCE</text>
+<text x="78" y="201" fill="#94a3b8" font-family="monospace" font-size="17">BUILDING INTELLIGENT SYSTEMS</text>
+
+<rect x="78" y="235" width="134" height="92" rx="18" fill="#0f172a" fill-opacity=".72" stroke="#67e8f9" stroke-opacity=".22"/>
+<text x="96" y="262" fill="#64748b" font-family="monospace" font-size="11">PUBLIC REPOS</text>
+<text x="96" y="302" fill="#e0f2fe" font-family="monospace" font-size="29" font-weight="700">${repos.length}</text>
+
+<rect x="226" y="235" width="134" height="92" rx="18" fill="#0f172a" fill-opacity=".72" stroke="#a78bfa" stroke-opacity=".22"/>
+<text x="244" y="262" fill="#64748b" font-family="monospace" font-size="11">ACTIVE / 30D</text>
+<text x="244" y="302" fill="#ede9fe" font-family="monospace" font-size="29" font-weight="700">${active.length}</text>
+
+<rect x="374" y="235" width="168" height="92" rx="18" fill="#0f172a" fill-opacity=".72" stroke="#f472b6" stroke-opacity=".18"/>
+<text x="392" y="262" fill="#64748b" font-family="monospace" font-size="11">SYSTEM STATE</text>
+<text x="392" y="302" fill="#fce7f3" font-family="monospace" font-size="20" font-weight="700">ONLINE</text>
+<text x="78" y="363" fill="#475569" font-family="monospace" font-size="11">LAST SYNC · ${esc(ist)} IST</text>
+
+<rect x="602" y="46" width="350" height="348" rx="26" fill="#ffffff" fill-opacity=".045" stroke="#ffffff" stroke-opacity=".12"/>
+<circle cx="777" cy="205" r="150" fill="url(#orb)" opacity=".8"/>
+<circle cx="777" cy="205" r="92" fill="none" stroke="#67e8f9" stroke-opacity=".16"/>
+<circle cx="777" cy="205" r="62" fill="none" stroke="#a78bfa" stroke-opacity=".25"/>
+<circle cx="777" cy="205" r="31" fill="#0b1220" stroke="#67e8f9" stroke-opacity=".75"/>
+<circle cx="777" cy="205" r="8" fill="#67e8f9" filter="url(#glow)"/>
+<path d="M777 174 L705 123 M777 174 L850 128 M777 236 L708 288 M777 236 L850 281 M746 205 L677 205 M808 205 L878 205" fill="none" stroke="#67e8f9" stroke-opacity=".32"/>
+<circle cx="705" cy="123" r="7" fill="#67e8f9"/><circle cx="850" cy="128" r="7" fill="#a78bfa"/>
+<circle cx="708" cy="288" r="7" fill="#a78bfa"/><circle cx="850" cy="281" r="7" fill="#f472b6"/>
+<circle cx="677" cy="205" r="6" fill="#67e8f9"/><circle cx="878" cy="205" r="6" fill="#f472b6"/>
+<text x="777" y="92" text-anchor="middle" fill="#cbd5e1" font-family="monospace" font-size="11" letter-spacing="3">NEURAL CORE</text>
+<text x="777" y="351" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="11">AGENTS · RAG · ML · REAL-TIME</text>
+
+<rect x="976" y="46" width="376" height="348" rx="26" fill="#ffffff" fill-opacity=".055" stroke="#ffffff" stroke-opacity=".13"/>
+<text x="1002" y="91" fill="#67e8f9" font-family="monospace" font-size="12" letter-spacing="3">PROJECT SIGNAL</text>
+<text x="1002" y="121" fill="#e2e8f0" font-family="Arial,sans-serif" font-size="22" font-weight="700">Recent systems</text>
+<g font-family="monospace" font-size="13">
+<circle cx="1008" cy="154" r="4" fill="#67e8f9"/><text x="1022" y="159" fill="#cbd5e1">${esc(projectNames[0])}</text>
+<circle cx="1008" cy="193" r="4" fill="#a78bfa"/><text x="1022" y="198" fill="#cbd5e1">${esc(projectNames[1])}</text>
+<circle cx="1008" cy="232" r="4" fill="#f472b6"/><text x="1022" y="237" fill="#cbd5e1">${esc(projectNames[2])}</text>
+<circle cx="1008" cy="271" r="4" fill="#67e8f9"/><text x="1022" y="276" fill="#cbd5e1">${esc(projectNames[3])}</text>
+<circle cx="1008" cy="310" r="4" fill="#a78bfa"/><text x="1022" y="315" fill="#cbd5e1">${esc(projectNames[4])}</text>
+<circle cx="1008" cy="349" r="4" fill="#f472b6"/><text x="1022" y="354" fill="#cbd5e1">${esc(projectNames[5])}</text>
+</g>
+<text x="1330" y="375" text-anchor="end" fill="#475569" font-family="monospace" font-size="10">AUTO-SYNCED FROM GITHUB</text>
+</svg>`;
+
+fs.writeFileSync("banner.svg", svg);
+console.log(`Generated glass banner: ${repos.length} public repos, ${active.length} active in 30d.`);
