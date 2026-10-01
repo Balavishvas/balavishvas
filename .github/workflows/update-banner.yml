@@ -2,7 +2,7 @@ name: Update profile banner
 
 on:
   schedule:
-    - cron: "0 0,6,12,18 * * *"
+    - cron: "17 0 * * *"
   workflow_dispatch:
 
 permissions:
@@ -16,12 +16,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Generate time-aware banner
+      - name: Generate glass profile banner
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USERNAME: Balavishvas
         run: node scripts/generate-banner.mjs
       - name: Commit banner
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add banner.svg
-          git diff --cached --quiet || git commit -m "chore: update profile banner"
+          git diff --cached --quiet || git commit -m "chore: refresh glass profile banner"
           git push
