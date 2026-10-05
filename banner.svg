@@ -30,16 +30,16 @@
 
 <rect x="78" y="235" width="134" height="92" rx="18" fill="#0f172a" fill-opacity=".72" stroke="#67e8f9" stroke-opacity=".22"/>
 <text x="96" y="262" fill="#64748b" font-family="monospace" font-size="11">PUBLIC REPOS</text>
-<text x="96" y="302" fill="#e0f2fe" font-family="monospace" font-size="29" font-weight="700">30</text>
+<text x="96" y="302" fill="#e0f2fe" font-family="monospace" font-size="29" font-weight="700">31</text>
 
 <rect x="226" y="235" width="134" height="92" rx="18" fill="#0f172a" fill-opacity=".72" stroke="#a78bfa" stroke-opacity=".22"/>
 <text x="244" y="262" fill="#64748b" font-family="monospace" font-size="11">ACTIVE / 30D</text>
-<text x="244" y="302" fill="#ede9fe" font-family="monospace" font-size="29" font-weight="700">12</text>
+<text x="244" y="302" fill="#ede9fe" font-family="monospace" font-size="29" font-weight="700">13</text>
 
 <rect x="374" y="235" width="168" height="92" rx="18" fill="#0f172a" fill-opacity=".72" stroke="#f472b6" stroke-opacity=".18"/>
 <text x="392" y="262" fill="#64748b" font-family="monospace" font-size="11">SYSTEM STATE</text>
 <text x="392" y="302" fill="#fce7f3" font-family="monospace" font-size="20" font-weight="700">ONLINE</text>
-<text x="78" y="363" fill="#475569" font-family="monospace" font-size="11">LAST SYNC · 04 Oct 2026, 11:21 IST</text>
+<text x="78" y="363" fill="#475569" font-family="monospace" font-size="11">LAST SYNC · 05 Oct 2026, 11:08 IST</text>
 
 <rect x="602" y="46" width="350" height="348" rx="26" fill="#ffffff" fill-opacity=".045" stroke="#ffffff" stroke-opacity=".12"/>
 <circle cx="777" cy="205" r="150" fill="url(#orb)" opacity=".8"/>
@@ -58,12 +58,12 @@
 <text x="1002" y="91" fill="#67e8f9" font-family="monospace" font-size="12" letter-spacing="3">PROJECT SIGNAL</text>
 <text x="1002" y="121" fill="#e2e8f0" font-family="Arial,sans-serif" font-size="22" font-weight="700">Recent systems</text>
 <g font-family="monospace" font-size="13">
-<circle cx="1008" cy="154" r="4" fill="#67e8f9"/><text x="1022" y="159" fill="#cbd5e1">balavishvas</text>
-<circle cx="1008" cy="193" r="4" fill="#a78bfa"/><text x="1022" y="198" fill="#cbd5e1">Mileage Prediction Mod</text>
-<circle cx="1008" cy="232" r="4" fill="#f472b6"/><text x="1022" y="237" fill="#cbd5e1">Effy AI Voice Agent</text>
-<circle cx="1008" cy="271" r="4" fill="#67e8f9"/><text x="1022" y="276" fill="#cbd5e1">AdvocAI RAG</text>
-<circle cx="1008" cy="310" r="4" fill="#a78bfa"/><text x="1022" y="315" fill="#cbd5e1">Balavishvas Portfolio</text>
-<circle cx="1008" cy="349" r="4" fill="#f472b6"/><text x="1022" y="354" fill="#cbd5e1">MachineLearning_Learni</text>
+<circle cx="1008" cy="154" r="4" fill="#67e8f9"/><text x="1022" y="159" fill="#cbd5e1">portfolio</text>
+<circle cx="1008" cy="193" r="4" fill="#a78bfa"/><text x="1022" y="198" fill="#cbd5e1">balavishvas</text>
+<circle cx="1008" cy="232" r="4" fill="#f472b6"/><text x="1022" y="237" fill="#cbd5e1">Mileage Prediction Mod</text>
+<circle cx="1008" cy="271" r="4" fill="#67e8f9"/><text x="1022" y="276" fill="#cbd5e1">Effy AI Voice Agent</text>
+<circle cx="1008" cy="310" r="4" fill="#a78bfa"/><text x="1022" y="315" fill="#cbd5e1">AdvocAI RAG</text>
+<circle cx="1008" cy="349" r="4" fill="#f472b6"/><text x="1022" y="354" fill="#cbd5e1">Balavishvas Portfolio</text>
 </g>
 <text x="1330" y="375" text-anchor="end" fill="#475569" font-family="monospace" font-size="10">AUTO-SYNCED FROM GITHUB</text>
 </svg>
