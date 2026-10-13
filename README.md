@@ -43,6 +43,7 @@ Learn  → by building, testing, breaking, and improving
 
 | Project | What it does | Stack | Status |
 |---|---|---|---|
+| **[Lenny Growth Assistant](https://github.com/Balavishvas/lenny-growth-assistant)** | Local-first, evidence-grounded research workspace with RAG, source traceability, Ollama inference, and Ship 30 for 30 writing/artifact tools | Python · FastAPI · PostgreSQL · pgvector · Ollama | 🟢 Core workflows implemented |
 | **[WhatIf-AI](https://github.com/Balavishvas/WhatIf-AI)** | Scenario generation and outcome simulation system | AI · Agents · Simulation | 🟢 Building |
 | **[InferRAG](https://github.com/Balavishvas/InferRAG)** | RAG system evolving toward multi-format document intelligence | Python · RAG · LLM | 🟢 Building |
 | **[TourChain](https://github.com/Balavishvas/Touriest-Safety-Monitoring-And-Incident-Response-System)** | Real-time tourist safety and incident-response platform | Node.js · FastAPI · AI · WebSockets | 🟡 Developing |
