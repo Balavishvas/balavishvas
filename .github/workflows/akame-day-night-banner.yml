@@ -27,6 +27,7 @@ jobs:
           else
             TARGET="akame-shining-banner.gif"
           fi
+          export TARGET
 
           # Keep the existing banner working until the daytime GIF is uploaded.
           if [[ "$TARGET" == "akame-day-banner.gif" && ! -f "$TARGET" ]]; then
@@ -37,7 +38,7 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           import os, re
-          target = os.environ.get("TARGET")
+          target = os.environ["TARGET"]
           readme = Path("README.md")
           text = readme.read_text(encoding="utf-8")
           replacement = f'<img src="./{target}" width="100%" alt="Akame cosmic banner with shining stars"/>'
@@ -48,8 +49,6 @@ jobs:
           if updated != text:
               readme.write_text(updated, encoding="utf-8")
           PY
-        env:
-          TARGET: ${{ env.TARGET }}
 
       - name: Commit banner change
         run: |
