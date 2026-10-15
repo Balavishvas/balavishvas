@@ -1,0 +1,64 @@
+name: Akame Day-Night Banner
+
+on:
+  schedule:
+    # 07:00 and 18:00 India Standard Time (UTC+05:30)
+    - cron: "30 1 * * *"
+    - cron: "30 12 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  switch-banner:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out profile repository
+        uses: actions/checkout@v4
+
+      - name: Switch banner for India time
+        shell: bash
+        run: |
+          set -euo pipefail
+          HOUR="$(TZ=Asia/Kolkata date +%H)"
+          if (( 10#$HOUR >= 7 && 10#$HOUR < 18 )); then
+            TARGET="akame-day-banner.gif"
+          else
+            TARGET="akame-shining-banner.gif"
+          fi
+
+          # Keep the existing banner working until the daytime GIF is uploaded.
+          if [[ "$TARGET" == "akame-day-banner.gif" && ! -f "$TARGET" ]]; then
+            echo "Daytime GIF not found yet; keeping the current banner."
+            exit 0
+          fi
+
+          python - <<'PY'
+          from pathlib import Path
+          import os, re
+          target = os.environ.get("TARGET")
+          readme = Path("README.md")
+          text = readme.read_text(encoding="utf-8")
+          replacement = f'<img src="./{target}" width="100%" alt="Akame cosmic banner with shining stars"/>'
+          pattern = r'<img src="./(?:akame-shining-banner|akame-day-banner)\.gif" width="100%" alt="Akame cosmic banner with shining stars"/>'
+          updated, count = re.subn(pattern, replacement, text, count=1)
+          if count != 1:
+              raise SystemExit("Could not find the expected Akame banner tag in README.md")
+          if updated != text:
+              readme.write_text(updated, encoding="utf-8")
+          PY
+        env:
+          TARGET: ${{ env.TARGET }}
+
+      - name: Commit banner change
+        run: |
+          if git diff --quiet -- README.md; then
+            echo "Banner is already correct; no commit needed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "chore: switch Akame profile banner"
+          git push
