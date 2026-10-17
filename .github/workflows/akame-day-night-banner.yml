@@ -23,16 +23,15 @@ jobs:
           set -euo pipefail
           HOUR="$(TZ=Asia/Kolkata date +%H)"
           if (( 10#$HOUR >= 7 && 10#$HOUR < 18 )); then
-            TARGET="akame-day-banner.gif"
+            TARGET="akame-shining-universe.gif"
           else
             TARGET="akame-shining-banner.gif"
           fi
           export TARGET
 
-          # Keep the existing banner working until the daytime GIF is uploaded.
-          if [[ "$TARGET" == "akame-day-banner.gif" && ! -f "$TARGET" ]]; then
-            echo "Daytime GIF not found yet; keeping the current banner."
-            exit 0
+          if [[ ! -f "$TARGET" ]]; then
+            echo "Expected banner file $TARGET is missing."
+            exit 1
           fi
 
           python - <<'PY'
@@ -42,7 +41,7 @@ jobs:
           readme = Path("README.md")
           text = readme.read_text(encoding="utf-8")
           replacement = f'<img src="./{target}" width="100%" alt="Akame cosmic banner with shining stars"/>'
-          pattern = r'<img src="./(?:akame-shining-banner|akame-day-banner)\.gif" width="100%" alt="Akame cosmic banner with shining stars"/>'
+          pattern = r'<img src="./(?:akame-shining-banner|akame-shining-universe|akame-day-banner)\.gif" width="100%" alt="Akame cosmic banner with shining stars"/>'
           updated, count = re.subn(pattern, replacement, text, count=1)
           if count != 1:
               raise SystemExit("Could not find the expected Akame banner tag in README.md")
