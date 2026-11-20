@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./akame-shining-universe.gif" width="100%" alt="Akame cosmic banner with shining stars"/>
+<img src="./akame-shining-banner.gif" width="100%" alt="Akame cosmic banner with shining stars"/>
 
 ### AI & Data Science · Agentic AI · Backend Systems
 
